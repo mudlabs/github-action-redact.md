@@ -1,9 +1,14 @@
 name: 'Redact.md'
 description: 'A Github Action used to redact data from markdown files.'
+author: 'mudlabs'
+branding:
+  icon: scissors
+  color: black
 inputs:
   secrets:
     required: true
     description: 'A list of keywords/phases to match in markdown files for redaction'
-branding:
-  icon: scissors
-  color: black
+runs:
+  using: 'node12'
+  main: 'index.js'
+
