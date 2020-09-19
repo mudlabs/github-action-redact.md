@@ -1,9 +1,9 @@
-name: 'Redacted'
-description: 'A Github Action used heavily by the CIA, NSA, MI5, etc.. to automatically redact _super dupa top secret_ data from markdown files, befor **"the enemy"** can get their hands on it.'
+name: 'Redact.md'
+description: 'A Github Action used to redact data from markdown files.'
 inputs:
   secrets:
     required: true
     description: 'A list of keywords/phases to match in markdown files for redaction'
 branding:
-  icon: redact
+  icon: scissors
   color: black
