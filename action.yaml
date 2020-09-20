@@ -8,7 +8,7 @@ inputs:
   symbole:
     required: false
     description: 'A string to replace all keywords/phases with. "classic" and "whiteout" are reserved words.'
-    default: 'clasic'
+    default: 'classic'
   api-endpoit:
     required: false
     description: 'A url endpoint that returns JSON list of keywords/phases to redact.'
