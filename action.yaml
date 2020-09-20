@@ -7,7 +7,11 @@ branding:
 inputs:
   secrets:
     required: true
-    description: 'A list of keywords/phases to match in markdown files for redaction'
+    description: 'The secrets to redact. Can be a keywords/phases list, a RegExp, or an API endpoint.'
+  redact-all:
+    required: false
+    default: false
+    description: 'Should the entire repo be scanned and redacted.'
 runs:
   using: 'node12'
   main: 'index.js'
