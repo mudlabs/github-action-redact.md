@@ -5,13 +5,23 @@ branding:
   icon: scissors
   color: black
 inputs:
-  secrets:
-    required: true
-    description: 'The secrets to redact. Can be a keywords/phases list, a RegExp, or an API endpoint.'
+  symbole:
+    required: false
+    description: 'A string to replace all keywords/phases with. "classic" and "whiteout" are reserved words.'
+    default: 'clasic'
+  api-endpoit:
+    required: false
+    description: 'A url endpoint that returns JSON list of keywords/phases to redact.'
+  comma-list:
+    required: false
+    description: 'A comma seperated string of keywords/phases to redact.'
+  regexp:
+    required: false
+    description: 'A string that can be converted to a RegExp to match keywords/phases for redaction.'
   redact-all:
     required: false
     default: false
-    description: 'Should the entire repo be scanned and redacted.'
+    description: 'Should the entire repo be scanned and redacted. Default behaviour is to only scan .md files in this commit.'
 runs:
   using: 'node12'
   main: 'index.js'
