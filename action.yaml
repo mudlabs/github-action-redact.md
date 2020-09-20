@@ -11,7 +11,7 @@ inputs:
     default: 'classic'
   api-endpoit:
     required: false
-    description: 'A url endpoint that returns JSON list of keywords/phases to redact.'
+    description: 'A url endpoint that returns a JSON list of keywords/phases to redact.'
   comma-list:
     required: false
     description: 'A comma seperated string of keywords/phases to redact.'
