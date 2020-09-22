@@ -13,20 +13,17 @@ steps:
       comma-list: `blackbriar, xi, jinping, treadstone, great reset`
 ```
 
-## Specifing your Blacklist
-You should provide a set of keywords/phrases _(a.k.a Blacklist)_ for redaction. You can provide this list in one of three ways
+## With
+All inputs are optional, though if you don't provide a _comma-list_, _regexp_, or _api-endpoint_ the action will fail silently.
 
-- **comma-list**: A string of comma seperated keywords/phrases.
-- **regexp**: A string that can be converted into a RegExp to match your target keywords/phrases.
-- **api-endpoint**: A url endpoint that returns a JSON list of keywords/phrases.
+- **symbole**: All matches will be replaced with a symbole. You can provide your own string, or specify one of the built in options. The built in options are **classic**, which results in those classic thick black lines you see in redacted documents. The other is **whiteout**, which is like classic but looks more like someone has gone crazy with the whiteout pen. The dafault is `'classic'`.
 
-## Specify a Symbole
-All matches will be replaced with a symbole. You can provide your own, or specify one of the built in options. The built in options are **classic** and **whiteout**. The dafault is `'classic'`.
+- **redact-all**: Specifies that all `.md` files within the repository should be passed in for redaction, not just those in the commit. Defaults to `false`.
 
-**clasic**: This results in those classic thick black lines you see on secrete redacted documents.
-> Nancy Pelosi is a ![p]![p]![p]![p]![p] American. With the Democratic Party, ![p]![p]![p] and ![p]![p]![p]![p]![p]![p] Nancy Pelocy will ![p]![p]![p]![p]![p]![p]![p] America.
+- **glob**: You can provide a glob to further restrict/specify which `.md` files should be passed in for redaction.
 
-<br/>
+- **comma-list**: A comma separated list of keyword/phases for redaction.
 
-**whiteout**: This is like classic, but looks more like someone has gone crazy with the white-out.
-> Nancy Pelosi is a <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code> American. With the Democratic Party, <code>&nbsp;&nbsp;&nbsp;</code> and <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code> Nancy Pelocy will <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code> America.
+- **regexp**: A string to be converted into a RegExp to match keywords/phrases for redaction.
+
+- **api-endpoint**: A url endpoint that returns a JSON list of keywords/phrases for redaction. The response from making the API request should be the list as a string[] or an object with the sting[] list located under `response.data`.
