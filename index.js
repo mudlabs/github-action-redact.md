@@ -49,7 +49,7 @@ if (secrets_type === undefined) return;
                 replacement = replaceWithX(`<img src="images/redacted.png" width="13"/>`);
                 break;
               case "whiteout":
-                replacement = `<code>${replaceWithX(&nbsp;)}</code>`;
+                replacement = `<code>${replaceWithX(`&nbsp;`)}</code>`;
                 break;
               default:
                 replacement = replaceWithX(symbole);
