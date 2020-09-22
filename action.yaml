@@ -22,6 +22,10 @@ inputs:
     required: false
     default: false
     description: 'Should the entire repo be scanned and redacted. Default behaviour is to only scan .md files in this commit.'
+  glob:
+    required: false
+    default: '**/*.md'
+    description: 'Further specifies what markdown files should be selected for redaction.'
 runs:
   using: 'node12'
   main: 'index.js'
