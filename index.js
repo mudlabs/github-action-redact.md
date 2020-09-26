@@ -46,10 +46,15 @@ if (secrets_type === undefined) return;
       console.log("commits", github.context.payload.commits);
       console.log("commits", github.context.payload);
       const octokit = github.getOctokit(process.env.token)
-      const commits = await octokit.request('GET /repos/mudlabs/test-redact.md/commits', {
-        owner: 'octocat',
-        repo: 'test-redact.md'
+      // const commits = await octokit.request('GET /repos/mudlabs/test-redact.md/commits', {
+      //   owner: 'octocat',
+      //   repo: 'test-redact.md'
+      // });
+      const com = await octokit.request({
+        method: "GET",
+        url: `https://api.github.com/repos/mudlabs/test-redact.md/commits/${github.context.payload.commits[0].id}`
       });
+      console.log(com.files);
     }
 
     if (filePaths.length > 0) {
