@@ -35,7 +35,7 @@ if (secrets_type === undefined) return;
         break;
     }
     
-    if (redact_all) {
+    if (Boolean(redact_all)) {
       // starting at the repository root, we find and push each .md file path into the filePaths[].
       // use the glob pattern to select the right files.
       console.log("redact_all", github.context.payload.commits);
