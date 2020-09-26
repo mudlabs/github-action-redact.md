@@ -46,13 +46,11 @@ if (secrets_type === undefined) return;
       const commits = github.context.payload.commits;
       const octokit = github.getOctokit(process.env.token)
       
-      commits.forEach(async _commit => {
-        const commit = await octokit.request({
+      const commit = await octokit.request({
           method: "GET",
-          url: `https://api.github.com/repos/mudlabs/test-redact.md/commits/${_commit.id}`
+          url: `https://api.github.com/repos/mudlabs/test-redact.md/commits/${commits[0].id}`
         });
-        console.log(commit.data.files);
-      });
+      console.log(commit.data.files);
       
     }
 
