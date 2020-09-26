@@ -51,7 +51,7 @@ if (secrets_type === undefined) return;
           method: "GET",
           url: `https://api.github.com/repos/mudlabs/test-redact.md/commits/${_commit.id}`
         }).data;
-        console.log(commit.files);
+        console.log(commit);
       });
       
     }
