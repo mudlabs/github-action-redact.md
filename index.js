@@ -50,7 +50,13 @@ if (secrets_type === undefined) return;
           method: "GET",
           url: `https://api.github.com/repos/mudlabs/test-redact.md/commits/${commits[0].id}`
         });
-      console.log(commit.data.files);
+      const commit_files = commit.data.files;
+      console.log(
+        commit_files.filename,
+        commit_files.status,
+        "raw_url: The https web address of the raw file",
+        "contents_url: api address of the git file contents. This includes the files name, path, sha,  git_url, encoded contents etc..."
+      );
       
     }
 
