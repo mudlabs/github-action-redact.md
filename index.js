@@ -49,7 +49,8 @@ if (secrets_type === undefined) return;
         owner: 'octocat',
         repo: 'test-redact.md'
       });
-      console.log(commits.data);
+      const data = commits.data;
+      data.forEach(d => console.log(d.commit))
     }
 
     if (filePaths.length > 0) {
