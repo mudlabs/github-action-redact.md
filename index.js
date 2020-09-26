@@ -10,7 +10,12 @@ const redact_all = core.getInput("redact-all");
 const comma_list = core.getInput("comma-list");
 const api_endpoint = core.getInput("api-endpoint");
 
-const secrets_type = comma_list || regexp || api_endpoint || undefined;
+const secrets_type = 
+    comma_list ? "comma-list" 
+  : regexp ? "regexp" 
+  : api_endpoint ? "api_endpoint" 
+  : undefined;
+
 if (secrets_type === undefined) return;
 
 (async function() {
