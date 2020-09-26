@@ -1,0 +1,28 @@
+{
+  "name": "github-action-redact.md",
+  "version": "1.0.0",
+  "description": "A Github action used to redact super dupa top secret data from markdown files.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mudlabs/github-action-redact.md.git"
+  },
+  "author": "Mudlabs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mudlabs/github-action-redact.md/issues"
+  },
+  "homepage": "https://github.com/mudlabs/github-action-redact.md#readme",
+  "keywords": [
+    "Redact",
+    "Redaction",
+    "Secret"
+  ],
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0"
+  }
+}

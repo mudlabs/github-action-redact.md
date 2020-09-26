@@ -1,5 +1,7 @@
 const fs = require("fs");
+const path = require("path");
 const core = require("@actions/core");
+const github = require("@actions/github");
 
 const glob = core.getInput("glob");
 const regexp = core.getInput("regexp");                 
@@ -17,12 +19,12 @@ if (secrets_type === undefined) return;
     const filePaths = [];
     
     switch(secrets_type) {
+      case "comma-list":
+        blacklist = comma_list.split(",");
+        break;
       case "regexp":
         blacklist = new RegExp(regexp);
         break;
-      case "comma-list":
-        blacklist = comma_list.split(",");
-        break'
       case "api-endpoint":
         blacklist = await methodToGetRemoteBlacklist(api-endpoint);
         break;
@@ -34,6 +36,7 @@ if (secrets_type === undefined) return;
     } else {
       // find and push all the .md file paths into the filePaths[].
       // use the glob pattern to select the right files
+      console.log(github.context.payload)
     }
 
     if (filePaths.length > 0) {
