@@ -16,7 +16,9 @@ const secrets_type =
   : api_endpoint ? "api_endpoint" 
   : undefined;
 
+console.log(github.context.payload);
 if (secrets_type === undefined) return;
+console.log(secrets_type);
 
 (async function() {
   try {
