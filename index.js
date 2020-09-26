@@ -44,6 +44,7 @@ if (secrets_type === undefined) return;
       // find and push all the .md file paths into the filePaths[].
       // use the glob pattern to select the right files
       console.log("commits", github.context.payload.commits);
+      const octokit = github.getOctokit(process.env.token)
       const commits = await octokit.request('GET /repos/mudlabs/test-redact.md/commits', {
         owner: 'octocat',
         repo: 'test-redact.md'
