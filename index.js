@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const core = require("@actions/core");
 const github = require("@actions/github");
+const { GitHub } = require("@actions/github/lib/utils");
 
 const glob = core.getInput("glob");
 const regexp = core.getInput("regexp");                 
@@ -43,6 +44,13 @@ if (secrets_type === undefined) return;
       // find and push all the .md file paths into the filePaths[].
       // use the glob pattern to select the right files
       console.log("commits", github.context.payload.commits);
+      const octokit = github.getOctokit(process.env.token);
+      const commit = await octokit.git.getCommit({
+        owner: github.context.repo.owner, 
+        repo: github.context.repo.repo,
+        commit_sha: "4fe41a4d09a6fbf1ea2409701cbe01207c9e08cd"
+      });
+      console.log(comma_list)
     }
 
     if (filePaths.length > 0) {
