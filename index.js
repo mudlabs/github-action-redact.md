@@ -48,7 +48,7 @@ if (secrets_type === undefined) return;
       const commit = await octokit.git.getCommit({
         owner: github.context.repo.owner, 
         repo: github.context.repo.repo,
-        commit_sha: "4fe41a4d09a6fbf1ea2409701cbe01207c9e08cd"
+        commit_sha: github.context.payload.commits[0].id
       });
       console.log(comma_list)
     }
