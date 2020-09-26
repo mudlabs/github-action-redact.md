@@ -13,7 +13,7 @@ const api_endpoint = core.getInput("api-endpoint");
 const secrets_type = comma_list || regexp || api_endpoint || undefined;
 if (secrets_type === undefined) return;
 
-(async function(_blacklist) {
+(async function() {
   try {
     let blacklist;
     const filePaths = [];
@@ -41,7 +41,7 @@ if (secrets_type === undefined) return;
 
     if (filePaths.length > 0) {
       // iterate over the filePaths[]
-      filePaths.forEach(path => {
+      filePaths.forEach(async path => {
         const file = await fs.promises.readFile(path, {encoding: "utf-8" });
         const redacted = file.replace(blacklist, match => {
           let replacement;
@@ -66,4 +66,4 @@ if (secrets_type === undefined) return;
   } catch(error) {
     console.log(error);
   }
-})(blacklist);
+})();
