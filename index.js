@@ -44,7 +44,7 @@ if (secrets_type === undefined) return;
       // find and push all the .md file paths into the filePaths[].
       // use the glob pattern to select the right files
       console.log("commits", github.context.payload.commits);
-      console.log("commits", github.context.payload);
+      const commits = github.context.payload.commits;
       const octokit = github.getOctokit(process.env.token)
       // const commits = await octokit.request('GET /repos/mudlabs/test-redact.md/commits', {
       //   owner: 'octocat',
@@ -52,9 +52,9 @@ if (secrets_type === undefined) return;
       // });
       const com = await octokit.request({
         method: "GET",
-        url: `https://api.github.com/repos/mudlabs/test-redact.md/commits/${github.context.payload.commits[0].id}`
+        url: `https://api.github.com/repos/mudlabs/test-redact.md/commits/${commits[0].id}`
       });
-      console.log(com.files);
+      console.log(com);
     }
 
     if (filePaths.length > 0) {
