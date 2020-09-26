@@ -50,8 +50,8 @@ if (secrets_type === undefined) return;
         const commit = await octokit.request({
           method: "GET",
           url: `https://api.github.com/repos/mudlabs/test-redact.md/commits/${_commit.id}`
-        })
-        console.log(commit);
+        }).data;
+        console.log(commit.files);
       });
       
     }
