@@ -16,9 +16,7 @@ const secrets_type =
   : api_endpoint ? "api_endpoint" 
   : undefined;
 
-console.log(github.context.payload);
 if (secrets_type === undefined) return;
-console.log(secrets_type);
 
 (async function() {
   try {
@@ -33,7 +31,7 @@ console.log(secrets_type);
         blacklist = new RegExp(regexp);
         break;
       case "api-endpoint":
-        blacklist = await methodToGetRemoteBlacklist(api-endpoint);
+        // blacklist = await methodToGetRemoteBlacklist(api_endpoint);
         break;
     }
     
@@ -43,7 +41,7 @@ console.log(secrets_type);
     } else {
       // find and push all the .md file paths into the filePaths[].
       // use the glob pattern to select the right files
-      console.log(github.context.payload)
+      console.log(github.context.payload.commits)
     }
 
     if (filePaths.length > 0) {
