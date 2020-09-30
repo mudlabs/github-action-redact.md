@@ -1,9 +1,9 @@
-// const fs = require("fs");
+const fs = require("fs");
 // const path = require("path");
 // const core = require("@actions/core");
 // const github = require("@actions/github");
 // const { GitHub } = require("@actions/github/lib/utils");
-console.log("Executing code from", process.env.GITHUB_REPOSITORY)
+console.log("has file", fs.existsSync("./images/redacted_p.png"));
 // const glob = core.getInput("glob");
 // const regexp = core.getInput("regexp");                 
 // const symbole = core.getInput("symbole");
