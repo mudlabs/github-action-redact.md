@@ -3,7 +3,7 @@
 // const core = require("@actions/core");
 // const github = require("@actions/github");
 // const { GitHub } = require("@actions/github/lib/utils");
-console.log(process.env.GITHUB_REPOSITORY)
+console.log("Executing code from", process.env.GITHUB_REPOSITORY)
 // const glob = core.getInput("glob");
 // const regexp = core.getInput("regexp");                 
 // const symbole = core.getInput("symbole");
